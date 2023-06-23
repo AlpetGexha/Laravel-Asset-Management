@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('serial')->nullable();
             $table->string('type');
 
+            $table->foreignId('company_id')->index()->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->nullable()->index()->constrained()->nullOnDelete();
             $table->foreignId('provaider_id')->index()->constrained()->cascadeOnDelete();
 

@@ -17,7 +17,7 @@ class HardwarePolicy
      */
     public function viewAny(User $user)
     {
-        return $user->can('view_any_hardware');
+        return true;
     }
 
     /**
@@ -27,7 +27,7 @@ class HardwarePolicy
      */
     public function view(User $user, Hardware $hardware)
     {
-        return $user->can('view_hardware');
+        return true;
     }
 
     /**
@@ -37,7 +37,8 @@ class HardwarePolicy
      */
     public function create(User $user)
     {
-        return $user->can('create_hardware');
+
+        return true;
     }
 
     /**
@@ -47,7 +48,8 @@ class HardwarePolicy
      */
     public function update(User $user, Hardware $hardware)
     {
-        return $user->can('update_hardware');
+
+        return true;
     }
 
     /**
@@ -57,7 +59,8 @@ class HardwarePolicy
      */
     public function delete(User $user, Hardware $hardware)
     {
-        return $user->can('delete_hardware');
+
+        return true;
     }
 
     /**
@@ -67,7 +70,8 @@ class HardwarePolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->can('delete_any_hardware');
+
+        return true;
     }
 
     /**
@@ -77,7 +81,8 @@ class HardwarePolicy
      */
     public function forceDelete(User $user, Hardware $hardware)
     {
-        return $user->can('force_delete_hardware');
+
+        return true;
     }
 
     /**
@@ -87,7 +92,8 @@ class HardwarePolicy
      */
     public function forceDeleteAny(User $user)
     {
-        return $user->can('force_delete_any_hardware');
+
+        return true;
     }
 
     /**
@@ -97,7 +103,8 @@ class HardwarePolicy
      */
     public function restore(User $user, Hardware $hardware)
     {
-        return $user->can('restore_hardware');
+
+        return true;
     }
 
     /**
@@ -107,7 +114,8 @@ class HardwarePolicy
      */
     public function restoreAny(User $user)
     {
-        return $user->can('restore_any_hardware');
+
+        return true;
     }
 
     /**
@@ -117,7 +125,8 @@ class HardwarePolicy
      */
     public function replicate(User $user, Hardware $hardware)
     {
-        return $user->can('replicate_hardware');
+
+        return true;
     }
 
     /**
@@ -127,6 +136,7 @@ class HardwarePolicy
      */
     public function reorder(User $user)
     {
-        return $user->can('reorder_hardware');
+
+        return true;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Company;
 use App\Models\Provaider;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -25,6 +26,7 @@ class PeriphelFactory extends Factory
             'type' => $this->faker->randomLetter(),
             'current' => $this->faker->boolean(60),
             'user_id' => User::factory(),
+            'company_id' => Company::factory(),
             'provaider_id' => Provaider::factory(),
             'purchased_at' => $this->faker->dateTimeBetween('-5 years', 'now'),
         ];
