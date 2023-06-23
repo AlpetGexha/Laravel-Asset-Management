@@ -10,8 +10,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Columns\Column;
 
 class ProvaiderResource extends Resource
 {
@@ -33,6 +32,13 @@ class ProvaiderResource extends Resource
 
     public static function table(Table $table): Table
     {
+        Column::configureUsing(function (Column $column): void {
+            $column
+                ->toggleable()
+                ->searchable()
+                ->sortable();
+        });
+
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
@@ -40,7 +46,7 @@ class ProvaiderResource extends Resource
                     ->dateTime(),
             ])
             ->filters([
-                //
+
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -53,7 +59,9 @@ class ProvaiderResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\HardwareRelationManager::class,
+            RelationManagers\SoftwareRelationManager::class,
+            RelationManagers\PeriphelsRelationManager::class,
         ];
     }
 
@@ -62,7 +70,7 @@ class ProvaiderResource extends Resource
         return [
             'index' => Pages\ListProvaiders::route('/'),
             // 'create' => Pages\CreateProvaider::route('/create'),
-            // 'edit' => Pages\EditProvaider::route('/{record}/edit'),
+            'edit' => Pages\EditProvaider::route('/{record}/edit'),
         ];
     }
 }

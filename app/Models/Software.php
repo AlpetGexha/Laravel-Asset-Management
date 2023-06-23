@@ -19,7 +19,7 @@ class Software extends Model
     protected $casts = [
         'purchased_at' => 'datetime',
         'expired_at' => 'datetime',
-        'current' => 'boolean'
+        'current' => 'boolean',
     ];
 
     public function provaider(): BelongsTo

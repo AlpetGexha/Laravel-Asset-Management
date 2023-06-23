@@ -1,24 +1,20 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\ProvaiderResource\RelationManagers;
 
-use App\Filament\Resources\PeriphelResource\Pages;
-use App\Models\Periphel;
 use Filament\Forms;
 use Filament\Resources\Form;
-use Filament\Resources\Resource;
+use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class PeriphelResource extends Resource
+class PeriphelsRelationManager extends RelationManager
 {
-    protected static ?string $model = Periphel::class;
+    protected static string $relationship = 'periphels';
 
-    protected static ?string $navigationGroup = 'meta';
-
-    protected static ?string $navigationIcon = 'heroicon-o-camera';
+    protected static ?string $recordTitleAttribute = 'model';
 
     public static function form(Form $form): Form
     {
@@ -50,7 +46,6 @@ class PeriphelResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('user.name'),
-                Tables\Columns\TextColumn::make('provaider.name'),
                 Tables\Columns\TextColumn::make('make'),
                 Tables\Columns\TextColumn::make('model'),
                 Tables\Columns\TextColumn::make('serial'),
@@ -63,35 +58,26 @@ class PeriphelResource extends Resource
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])
+            ->headerActions([
+                Tables\Actions\CreateAction::make(),
+            ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ForceDeleteAction::make(),
+                Tables\Actions\RestoreAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
-                Tables\Actions\ForceDeleteBulkAction::make(),
                 Tables\Actions\RestoreBulkAction::make(),
+                Tables\Actions\ForceDeleteBulkAction::make(),
             ]);
     }
 
-    public static function getRelations(): array
+    protected function getTableQuery(): Builder
     {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListPeriphels::route('/'),
-            'create' => Pages\CreatePeriphel::route('/create'),
-            'edit' => Pages\EditPeriphel::route('/{record}/edit'),
-        ];
-    }
-
-    public static function getEloquentQuery(): Builder
-    {
-        return parent::getEloquentQuery()
+        return parent::getTableQuery()
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);

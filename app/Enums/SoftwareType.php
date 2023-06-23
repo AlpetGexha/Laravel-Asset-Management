@@ -2,5 +2,4 @@
 
 enum SoftwareType: string
 {
-
 }

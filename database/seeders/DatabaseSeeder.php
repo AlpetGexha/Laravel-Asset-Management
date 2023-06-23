@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'admin',
             'email' => 'admin@admin.com',
-            'password' => Hash::make('admin')
+            'password' => Hash::make('admin'),
         ])->assignRole('super_admin');
 
         \App\Models\User::factory(10)->create();
@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Periphel::factory(30)->create();
         \App\Models\Software::factory(200)->create();
         \App\Models\Hardware::factory(400)->create();
-
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

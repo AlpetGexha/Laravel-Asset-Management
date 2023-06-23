@@ -18,4 +18,14 @@ class Provaider extends Model
     {
         return $this->hasMany(Hardware::class);
     }
+
+    public function software(): HasMany
+    {
+        return $this->hasMany(Software::class);
+    }
+
+    public function periphels(): HasMany
+    {
+        return $this->hasMany(Periphel::class);
+    }
 }

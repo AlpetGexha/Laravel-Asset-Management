@@ -13,12 +13,12 @@ class Periphel extends Model
     use HasFactory, SoftDeletes, HasUserId;
 
     protected $fillable = [
-        'make', 'model', 'serial', 'type', 'status',  'user_id', 'provaider_id', 'purchased_at'
+        'make', 'model', 'serial', 'type', 'status',  'user_id', 'provaider_id', 'purchased_at',
     ];
 
     protected $casts = [
         'purchased_at' => 'datetime',
-        'current' => 'boolean'
+        'current' => 'boolean',
     ];
 
     public function user(): BelongsTo
@@ -30,6 +30,4 @@ class Periphel extends Model
     {
         return $this->belongsTo(Provaider::class);
     }
-
-
 }

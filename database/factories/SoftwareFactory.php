@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Enums\HardwareStatus;
-use App\Models\Hardware;
 use App\Models\Provaider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

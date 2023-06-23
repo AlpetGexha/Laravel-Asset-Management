@@ -54,7 +54,7 @@ class CompanyResource extends Resource
                     ->label('Users')
                     ->options(function () {
                         return \App\Models\User::all()->pluck('name', 'id');
-                    })
+                    }),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

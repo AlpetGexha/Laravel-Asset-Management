@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\PeriphelResource\Pages;
 
 use App\Filament\Resources\PeriphelResource;
-use Filament\Pages\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreatePeriphel extends CreateRecord

@@ -4,7 +4,6 @@ namespace App\Enums;
 
 class HardwareStatus
 {
-
     const ACTIVE = 'active';
 
     const INACTIVE = 'inactive';

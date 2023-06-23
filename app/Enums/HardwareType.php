@@ -5,13 +5,21 @@ namespace App\Enums;
 class HardwareType
 {
     const DESKTOP = 'desktop';
+
     const LAPTOP = 'laptop';
+
     const TABLET = 'tablet';
+
     const ANDROID = 'android';
+
     const IPHONE = 'iphone';
+
     const SERVER = 'server';
+
     const PRINTER = 'printer';
+
     const ROUTER = 'router';
+
     const SWITCH = 'switch';
 
     public static function all(): array
