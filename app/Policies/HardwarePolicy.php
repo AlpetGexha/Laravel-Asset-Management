@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Company;
+use App\Models\Hardware;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class CompanyPolicy
+class HardwarePolicy
 {
     use HandlesAuthorization;
 
@@ -17,7 +17,7 @@ class CompanyPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->can('view_any_company');
+        return $user->can('view_any_hardware');
     }
 
     /**
@@ -25,9 +25,9 @@ class CompanyPolicy
      *
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Company $company)
+    public function view(User $user, Hardware $hardware)
     {
-        return $user->can('view_company');
+        return $user->can('view_hardware');
     }
 
     /**
@@ -37,7 +37,7 @@ class CompanyPolicy
      */
     public function create(User $user)
     {
-        return $user->can('create_company');
+        return $user->can('create_hardware');
     }
 
     /**
@@ -45,9 +45,9 @@ class CompanyPolicy
      *
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Company $company)
+    public function update(User $user, Hardware $hardware)
     {
-        return $user->can('update_company');
+        return $user->can('update_hardware');
     }
 
     /**
@@ -55,9 +55,9 @@ class CompanyPolicy
      *
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Company $company)
+    public function delete(User $user, Hardware $hardware)
     {
-        return $user->can('delete_company');
+        return $user->can('delete_hardware');
     }
 
     /**
@@ -67,7 +67,7 @@ class CompanyPolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->can('delete_any_company');
+        return $user->can('delete_any_hardware');
     }
 
     /**
@@ -75,9 +75,9 @@ class CompanyPolicy
      *
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Company $company)
+    public function forceDelete(User $user, Hardware $hardware)
     {
-        return $user->can('force_delete_company');
+        return $user->can('force_delete_hardware');
     }
 
     /**
@@ -87,7 +87,7 @@ class CompanyPolicy
      */
     public function forceDeleteAny(User $user)
     {
-        return $user->can('force_delete_any_company');
+        return $user->can('force_delete_any_hardware');
     }
 
     /**
@@ -95,9 +95,9 @@ class CompanyPolicy
      *
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Company $company)
+    public function restore(User $user, Hardware $hardware)
     {
-        return $user->can('restore_company');
+        return $user->can('restore_hardware');
     }
 
     /**
@@ -107,7 +107,7 @@ class CompanyPolicy
      */
     public function restoreAny(User $user)
     {
-        return $user->can('restore_any_company');
+        return $user->can('restore_any_hardware');
     }
 
     /**
@@ -115,9 +115,9 @@ class CompanyPolicy
      *
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function replicate(User $user, Company $company)
+    public function replicate(User $user, Hardware $hardware)
     {
-        return $user->can('replicate_company');
+        return $user->can('replicate_hardware');
     }
 
     /**
@@ -127,6 +127,6 @@ class CompanyPolicy
      */
     public function reorder(User $user)
     {
-        return $user->can('reorder_company');
+        return $user->can('reorder_hardware');
     }
 }

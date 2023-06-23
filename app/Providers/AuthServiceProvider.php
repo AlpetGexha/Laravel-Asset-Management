@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
+
+use App\Policies\{HardwarePolicy, PeriphelPolicy, ProvaiderPolicy, SoftwarePolicy};
+use App\Models\{Company, Hardware, Periphel, Provaider, Software};
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -13,7 +16,11 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        //
+        CompanyPolicyMain::class => Company::class,
+        HardwarePolicy::class => Hardware::class,
+        PeriphelPolicy::class => Periphel::class,
+        ProvaiderPolicy::class => Provaider::class,
+        SoftwarePolicy::class => Software::class,
     ];
 
     /**
@@ -21,6 +28,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->registerPolicies();
     }
 }

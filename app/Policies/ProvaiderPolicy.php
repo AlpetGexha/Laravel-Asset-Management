@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Company;
+use App\Models\Provaider;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class CompanyPolicy
+class ProvaiderPolicy
 {
     use HandlesAuthorization;
 
@@ -17,7 +17,7 @@ class CompanyPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->can('view_any_company');
+        return $user->can('view_any_provaider');
     }
 
     /**
@@ -25,9 +25,9 @@ class CompanyPolicy
      *
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Company $company)
+    public function view(User $user, Provaider $provaider)
     {
-        return $user->can('view_company');
+        return $user->can('view_provaider');
     }
 
     /**
@@ -37,7 +37,7 @@ class CompanyPolicy
      */
     public function create(User $user)
     {
-        return $user->can('create_company');
+        return $user->can('create_provaider');
     }
 
     /**
@@ -45,9 +45,9 @@ class CompanyPolicy
      *
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Company $company)
+    public function update(User $user, Provaider $provaider)
     {
-        return $user->can('update_company');
+        return $user->can('update_provaider');
     }
 
     /**
@@ -55,9 +55,9 @@ class CompanyPolicy
      *
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Company $company)
+    public function delete(User $user, Provaider $provaider)
     {
-        return $user->can('delete_company');
+        return $user->can('delete_provaider');
     }
 
     /**
@@ -67,7 +67,7 @@ class CompanyPolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->can('delete_any_company');
+        return $user->can('delete_any_provaider');
     }
 
     /**
@@ -75,9 +75,9 @@ class CompanyPolicy
      *
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Company $company)
+    public function forceDelete(User $user, Provaider $provaider)
     {
-        return $user->can('force_delete_company');
+        return $user->can('force_delete_provaider');
     }
 
     /**
@@ -87,7 +87,7 @@ class CompanyPolicy
      */
     public function forceDeleteAny(User $user)
     {
-        return $user->can('force_delete_any_company');
+        return $user->can('force_delete_any_provaider');
     }
 
     /**
@@ -95,9 +95,9 @@ class CompanyPolicy
      *
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Company $company)
+    public function restore(User $user, Provaider $provaider)
     {
-        return $user->can('restore_company');
+        return $user->can('restore_provaider');
     }
 
     /**
@@ -107,7 +107,7 @@ class CompanyPolicy
      */
     public function restoreAny(User $user)
     {
-        return $user->can('restore_any_company');
+        return $user->can('restore_any_provaider');
     }
 
     /**
@@ -115,9 +115,9 @@ class CompanyPolicy
      *
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function replicate(User $user, Company $company)
+    public function replicate(User $user, Provaider $provaider)
     {
-        return $user->can('replicate_company');
+        return $user->can('replicate_provaider');
     }
 
     /**
@@ -127,6 +127,6 @@ class CompanyPolicy
      */
     public function reorder(User $user)
     {
-        return $user->can('reorder_company');
+        return $user->can('reorder_provaider');
     }
 }
