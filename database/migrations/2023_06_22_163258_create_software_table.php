@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('licenses')->nullable();
             $table->string('license_period')->nullable();
 
+            $table->foreignId('company_id')->index()->constrained()->cascadeOnDelete();
             $table->foreignId('provaider_id')->index()->constrained()->cascadeOnDelete();
 
             $table->dateTime('purchased_at');

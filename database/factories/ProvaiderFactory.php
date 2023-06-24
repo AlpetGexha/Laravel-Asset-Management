@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +19,7 @@ class ProvaiderFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
+            'company_id' => Company::factory(),
         ];
     }
 }

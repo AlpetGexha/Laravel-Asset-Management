@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Enums\HardwareStatus;
+use App\Models\Company;
 use App\Models\Provaider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,6 +23,7 @@ class SoftwareFactory extends Factory
             'name' => $this->faker->name,
             'type' => $this->faker->randomLetter(),
             'current' => $this->faker->boolean(60),
+            'company_id' => Company::factory(),
             'status' => $this->faker->randomElement(HardwareStatus::all()),
             'provaider_id' => Provaider::factory(),
             'licenses' => $this->faker->regexify('[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5}-[A-Z0-9]{5}'),

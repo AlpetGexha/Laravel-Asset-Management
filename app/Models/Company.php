@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Wallo\FilamentCompanies\Company as FilamentCompaniesCompany;
 use Wallo\FilamentCompanies\Events\CompanyCreated;
 use Wallo\FilamentCompanies\Events\CompanyDeleted;
@@ -50,5 +51,25 @@ class Company extends FilamentCompaniesCompany
                 $company->user_id = auth()->user()->id;
             }
         });
+    }
+
+    public function hardware(): HasMany
+    {
+        return $this->hasMany(Hardware::class);
+    }
+
+    public function software(): HasMany
+    {
+        return $this->hasMany(Software::class);
+    }
+
+    public function periphels(): HasMany
+    {
+        return $this->hasMany(Periphel::class);
+    }
+
+    public function provaider(): HasMany
+    {
+        return $this->hasMany(Provaider::class);
     }
 }

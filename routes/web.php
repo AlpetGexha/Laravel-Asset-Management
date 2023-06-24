@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->to('/login');
+    return to_route('filament.pages.dashboard');
 })->name('filament.auth.login');
 
 Route::middleware([

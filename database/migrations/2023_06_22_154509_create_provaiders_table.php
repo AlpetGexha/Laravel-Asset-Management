@@ -10,6 +10,7 @@ return new class extends Migration
     {
         Schema::create('provaiders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('company_id')->index()->constrained()->cascadeOnDelete();
             $table->string('name');
 
             $table->timestamps();

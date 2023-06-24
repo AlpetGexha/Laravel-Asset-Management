@@ -5,6 +5,7 @@ namespace App\Models;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -76,5 +77,17 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     public function hardware(): HasMany
     {
         return $this->hasMany(Hardware::class);
+    }
+
+    public function hasSelectCompanyPermission(string $permission)
+    {
+        $company = $this->currentCompany();
+
+        $this->hasCompanyPermission($company, $permission);
+    }
+
+    public function hasComapanyModel(Model $model): bool
+    {
+        return $this->current_company_id === $model->company_id;
     }
 }
