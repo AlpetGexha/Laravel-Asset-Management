@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ed5ca6a736ad40b9436fb0ebaf77c81",
+    "content-hash": "a1b5172370c607884103ec101b2a26ad",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -2979,6 +2979,166 @@
             "time": "2023-03-03T20:12:38+00:00"
         },
         {
+            "name": "marjose123/filament-lockscreen",
+            "version": "1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MarJose123/filament-lockscreen.git",
+                "reference": "f1ddffa49043479472ca02d41f1f89d3f1820fb2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MarJose123/filament-lockscreen/zipball/f1ddffa49043479472ca02d41f1f89d3f1820fb2",
+                "reference": "f1ddffa49043479472ca02d41f1f89d3f1820fb2",
+                "shasum": ""
+            },
+            "require": {
+                "danharrin/livewire-rate-limiting": "^1.0",
+                "filament/filament": "^2.0",
+                "filament/notifications": "^2.0",
+                "illuminate/contracts": "^8.0|^9.0|^10.0",
+                "php": "^8.1|^8.0",
+                "phpsa/filament-password-reveal": "^1.1",
+                "spatie/laravel-package-tools": "^1.13.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^6.0",
+                "orchestra/testbench": "^7.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "lockscreen\\FilamentLockscreen\\FilamentLockscreenServiceProvider"
+                    ],
+                    "aliases": {
+                        "FilamentLockscreen": "lockscreen\\FilamentLockscreen\\Facades\\FilamentLockscreen"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "lockscreen\\FilamentLockscreen\\": "src",
+                    "lockscreen\\FilamentLockscreen\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marjose",
+                    "email": "hypernate1@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This is my package filament-lockscreen",
+            "homepage": "https://github.com/marjose123/filament-lockscreen",
+            "keywords": [
+                "MarJose123",
+                "filament-lockscreen",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/MarJose123/filament-lockscreen/issues",
+                "source": "https://github.com/MarJose123/filament-lockscreen/tree/1.2.3"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/whoami213",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/MarJose123",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-06-05T05:18:20+00:00"
+        },
+        {
+            "name": "marjose123/filament-no-connection",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MarJose123/filament-no-connection.git",
+                "reference": "bafaa651bc708b9c767a3d71214e91c6aea6c9e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MarJose123/filament-no-connection/zipball/bafaa651bc708b9c767a3d71214e91c6aea6c9e1",
+                "reference": "bafaa651bc708b9c767a3d71214e91c6aea6c9e1",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^2.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.13.5"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^6.0",
+                "orchestra/testbench": "^7.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "pestphp/pest-plugin-livewire": "^1.0",
+                "pestphp/pest-plugin-parallel": "^0.3",
+                "phpunit/phpunit": "^9.5",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MarJose123\\FilamentNoConnection\\FilamentNoConnectionServiceProvider"
+                    ],
+                    "aliases": {
+                        "FilamentNoConnection": "MarJose123\\FilamentNoConnection\\Facades\\FilamentNoConnection"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MarJose123\\FilamentNoConnection\\": "src",
+                    "MarJose123\\FilamentNoConnection\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marjose",
+                    "email": "hypernate1@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Show an alert to the user if there is no connection from your server",
+            "homepage": "https://github.com/marjose123/filament-no-connection",
+            "keywords": [
+                "MarJose123",
+                "filament",
+                "filament-no-connection",
+                "filamentphp",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/MarJose123/filament-no-connection/issues",
+                "source": "https://github.com/MarJose123/filament-no-connection/tree/1.0.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/MarJose123",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-01-30T22:11:48+00:00"
+        },
+        {
             "name": "masterminds/html5",
             "version": "2.8.0",
             "source": {
@@ -3799,6 +3959,72 @@
                 }
             ],
             "time": "2023-02-25T19:38:58+00:00"
+        },
+        {
+            "name": "phpsa/filament-password-reveal",
+            "version": "v1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpsa/filament-password-reveal.git",
+                "reference": "e3e3300901b455241c514f1e0083c13161dffecd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpsa/filament-password-reveal/zipball/e3e3300901b455241c514f1e0083c13161dffecd",
+                "reference": "e3e3300901b455241c514f1e0083c13161dffecd",
+                "shasum": ""
+            },
+            "require": {
+                "filament/forms": "^2.9",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.10"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Phpsa\\FilamentPasswordReveal\\FilamentPasswordRevealProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Phpsa\\FilamentPasswordReveal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Craig G Smith",
+                    "email": "vxdhost@gmail.com"
+                }
+            ],
+            "description": "Password Input with option to show",
+            "homepage": "https://cgs4k.nz",
+            "keywords": [
+                "cli",
+                "filament",
+                "fun",
+                "laravel",
+                "resource",
+                "ui",
+                "user",
+                "widget"
+            ],
+            "support": {
+                "issues": "https://github.com/phpsa/filament-password-reveal/issues",
+                "source": "https://github.com/phpsa/filament-password-reveal/tree/v1.1.4"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/phpsa",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-02-22T21:39:18+00:00"
         },
         {
             "name": "pragmarx/google2fa",
