@@ -2,14 +2,13 @@
 
 namespace App\Policies;
 
-use App\Models\Hardware;
 use App\Models\User;
+use App\Models\Hardware;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class HardwarePolicy
 {
     use HandlesAuthorization;
-
     /**
      * Determine whether the user can view any models.
      *
@@ -37,7 +36,6 @@ class HardwarePolicy
      */
     public function create(User $user)
     {
-
         return true;
     }
 
@@ -48,8 +46,9 @@ class HardwarePolicy
      */
     public function update(User $user, Hardware $hardware)
     {
-
-        return true;
+        return
+            $user->can('update_hardware') ||
+            $user->hasComapanyModel($hardware);
     }
 
     /**
@@ -59,8 +58,8 @@ class HardwarePolicy
      */
     public function delete(User $user, Hardware $hardware)
     {
-
-        return true;
+        return $user->can('delete_hardware') ||
+            $user->hasComapanyModel($hardware);
     }
 
     /**
@@ -70,8 +69,9 @@ class HardwarePolicy
      */
     public function deleteAny(User $user)
     {
-
-        return true;
+        return
+            $user->can('delete_any_hardware') ||
+            $user->ownedCompanies();
     }
 
     /**
@@ -81,8 +81,9 @@ class HardwarePolicy
      */
     public function forceDelete(User $user, Hardware $hardware)
     {
-
-        return true;
+        return
+            $user->can('force_delete_hardware') ||
+            $user->ownedCompanies();
     }
 
     /**
@@ -92,8 +93,7 @@ class HardwarePolicy
      */
     public function forceDeleteAny(User $user)
     {
-
-        return true;
+        return $user->can('force_delete_any_hardware');
     }
 
     /**
@@ -103,8 +103,9 @@ class HardwarePolicy
      */
     public function restore(User $user, Hardware $hardware)
     {
-
-        return true;
+        return
+            $user->can('restore_hardware') ||
+            $user->ownedCompanies();
     }
 
     /**
@@ -114,8 +115,9 @@ class HardwarePolicy
      */
     public function restoreAny(User $user)
     {
-
-        return true;
+        return
+            $user->can('restore_any_hardware') ||
+            $user->ownedCompanies();;
     }
 
     /**
@@ -125,8 +127,7 @@ class HardwarePolicy
      */
     public function replicate(User $user, Hardware $hardware)
     {
-
-        return true;
+        return $user->can('replicate_hardware');
     }
 
     /**
@@ -136,7 +137,6 @@ class HardwarePolicy
      */
     public function reorder(User $user)
     {
-
-        return true;
+        return $user->can('reorder_hardware');
     }
 }

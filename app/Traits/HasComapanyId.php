@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Models\Scopes\CompanyScope;
 use Illuminate\Database\Eloquent\Model;
 
 trait HasComapanyId
@@ -13,5 +14,8 @@ trait HasComapanyId
                 $model->company_id = auth()->user()->currentCompany->id;
             }
         });
+
+        if (auth()->check())
+            static::addGlobalScope(new CompanyScope);
     }
 }

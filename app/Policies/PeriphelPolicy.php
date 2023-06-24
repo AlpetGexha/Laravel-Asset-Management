@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\Periphel;
 use App\Models\User;
+use App\Models\Periphel;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class PeriphelPolicy
@@ -17,7 +17,7 @@ class PeriphelPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->can('view_any_periphel');
+        return true;
     }
 
     /**
@@ -27,7 +27,9 @@ class PeriphelPolicy
      */
     public function view(User $user, Periphel $periphel)
     {
-        return $user->can('view_periphel');
+        return
+            $user->can('view_periphel') ||
+            $user->hasComapanyModel($periphel);
     }
 
     /**
@@ -37,7 +39,7 @@ class PeriphelPolicy
      */
     public function create(User $user)
     {
-        return $user->can('create_periphel');
+        return true;
     }
 
     /**
@@ -47,7 +49,9 @@ class PeriphelPolicy
      */
     public function update(User $user, Periphel $periphel)
     {
-        return $user->can('update_periphel');
+        return
+            $user->can('update_periphel') ||
+            $user->hasComapanyModel($periphel);
     }
 
     /**
@@ -57,7 +61,9 @@ class PeriphelPolicy
      */
     public function delete(User $user, Periphel $periphel)
     {
-        return $user->can('delete_periphel');
+        return
+            $user->can('delete_periphel') ||
+            $user->hasComapanyModel($periphel);
     }
 
     /**
@@ -67,7 +73,9 @@ class PeriphelPolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->can('delete_any_periphel');
+        return
+            $user->can('delete_any_periphel') ||
+            $user->ownedCompanies();
     }
 
     /**
@@ -77,7 +85,9 @@ class PeriphelPolicy
      */
     public function forceDelete(User $user, Periphel $periphel)
     {
-        return $user->can('force_delete_periphel');
+        return
+            $user->can('force_delete_periphel') ||
+            $user->ownedCompanies();;
     }
 
     /**
@@ -97,7 +107,9 @@ class PeriphelPolicy
      */
     public function restore(User $user, Periphel $periphel)
     {
-        return $user->can('restore_periphel');
+        return
+            $user->can('restore_periphel') ||
+            $user->ownedCompanies();
     }
 
     /**
@@ -107,7 +119,9 @@ class PeriphelPolicy
      */
     public function restoreAny(User $user)
     {
-        return $user->can('restore_any_periphel');
+        return
+            $user->can('restore_any_periphel') ||
+            $user->ownedCompanies();
     }
 
     /**

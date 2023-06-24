@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\Software;
 use App\Models\User;
+use App\Models\Software;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class SoftwarePolicy
@@ -17,7 +17,7 @@ class SoftwarePolicy
      */
     public function viewAny(User $user)
     {
-        return $user->can('view_any_software');
+        return true;
     }
 
     /**
@@ -27,7 +27,7 @@ class SoftwarePolicy
      */
     public function view(User $user, Software $software)
     {
-        return $user->can('view_software');
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class SoftwarePolicy
      */
     public function create(User $user)
     {
-        return $user->can('create_software');
+        return true;
     }
 
     /**
@@ -47,7 +47,8 @@ class SoftwarePolicy
      */
     public function update(User $user, Software $software)
     {
-        return $user->can('update_software');
+        return $user->can('update_software') ||
+            $user->hasComapanyModel($software);
     }
 
     /**
@@ -57,7 +58,8 @@ class SoftwarePolicy
      */
     public function delete(User $user, Software $software)
     {
-        return $user->can('delete_software');
+        return $user->can('delete_software') ||
+            $user->hasComapanyModel($software);
     }
 
     /**
@@ -67,7 +69,8 @@ class SoftwarePolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->can('delete_any_software');
+        return $user->can('delete_any_software') ||
+            $user->ownedCompanies();
     }
 
     /**
@@ -77,7 +80,8 @@ class SoftwarePolicy
      */
     public function forceDelete(User $user, Software $software)
     {
-        return $user->can('force_delete_software');
+        return $user->can('force_delete_software') ||
+            $user->ownedCompanies();
     }
 
     /**

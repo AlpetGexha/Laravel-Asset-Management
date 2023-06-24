@@ -112,5 +112,9 @@ class FilamentCompaniesServiceProvider extends ServiceProvider
             'create',
             'update',
         ])->description('Editor users have the ability to read, create, and update.');
+
+        FilamentCompanies::role('viewer', 'Spectator', [
+            'read',
+        ])->description('This user can only see the data.');
     }
 }

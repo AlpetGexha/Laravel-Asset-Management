@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\Provaider;
 use App\Models\User;
+use App\Models\Provaider;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ProvaiderPolicy
@@ -17,7 +17,7 @@ class ProvaiderPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->can('view_any_provaider');
+        return true;
     }
 
     /**
@@ -27,7 +27,7 @@ class ProvaiderPolicy
      */
     public function view(User $user, Provaider $provaider)
     {
-        return $user->can('view_provaider');
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class ProvaiderPolicy
      */
     public function create(User $user)
     {
-        return $user->can('create_provaider');
+        return true;
     }
 
     /**
@@ -47,7 +47,9 @@ class ProvaiderPolicy
      */
     public function update(User $user, Provaider $provaider)
     {
-        return $user->can('update_provaider');
+        return
+            $user->can('update_provaider')  ||
+            $user->hasComapanyModel($provaider);
     }
 
     /**
@@ -57,7 +59,9 @@ class ProvaiderPolicy
      */
     public function delete(User $user, Provaider $provaider)
     {
-        return $user->can('delete_provaider');
+        return
+            $user->can('delete_provaider') ||
+            $user->hasComapanyModel($provaider);
     }
 
     /**
@@ -67,7 +71,9 @@ class ProvaiderPolicy
      */
     public function deleteAny(User $user)
     {
-        return $user->can('delete_any_provaider');
+        return
+            $user->can('delete_any_provaider') ||
+            $user->ownedCompanies();
     }
 
     /**

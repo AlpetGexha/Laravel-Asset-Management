@@ -4,7 +4,7 @@ namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
 
-use App\Policies\{HardwarePolicy, PeriphelPolicy, ProvaiderPolicy, SoftwarePolicy};
+use App\Policies\{CompanyPolicyMain, HardwarePolicy, PeriphelPolicy, ProvaiderPolicy, SoftwarePolicy};
 use App\Models\{Company, Hardware, Periphel, Provaider, Software};
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
