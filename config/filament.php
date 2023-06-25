@@ -317,6 +317,7 @@ return [
     'middleware' => [
         'auth' => [
             Authenticate::class,
+            // lockscreen\FilamentLockscreen\Http\Middleware\LockerLocker::class,
         ],
         'base' => [
             EncryptCookies::class,
