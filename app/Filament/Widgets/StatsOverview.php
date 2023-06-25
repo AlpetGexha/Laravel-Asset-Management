@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\DB;
 
 class StatsOverview extends BaseWidget
 {
+    protected static ?int $sort = 6;
+
     public bool $readyToLoad = false;
 
     public function loadData()
@@ -45,7 +47,10 @@ class StatsOverview extends BaseWidget
     protected function skeletonLoad(): array
     {
         return [
-            Card::make('Loading Data', 'loading...'),
+            Card::make('Hardware', 'loading...'),
+            Card::make('Software', 'loading...'),
+            Card::make('Provaiders', 'loading...'),
+            Card::make('Periphels', 'loading...'),
         ];
     }
 }

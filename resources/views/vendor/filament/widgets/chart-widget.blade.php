@@ -3,7 +3,7 @@
     $filters = $this->getFilters();
 @endphp
 
-<x-filament::widget class="filament-widgets-chart-widget">
+<x-filament::widget class="filament-widgets-chart-widget" wire:init='loadData'>
     <x-filament::card>
         @if ($heading || $filters)
             <div class="flex items-center justify-between gap-8">
