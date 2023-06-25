@@ -16,6 +16,8 @@ class ProvaiderResource extends Resource
 {
     protected static ?string $model = Provaider::class;
 
+    protected static ?int $navigationSort = 3;
+
     protected static ?string $navigationGroup = 'bookmark';
 
     protected static ?string $navigationIcon = 'heroicon-o-adjustments';
@@ -45,9 +47,7 @@ class ProvaiderResource extends Resource
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
             ])
-            ->filters([
-
-            ])
+            ->filters([])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
