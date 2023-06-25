@@ -31,7 +31,8 @@ class AuthServiceProvider extends ServiceProvider
         PeriphelPolicy::class => Periphel::class,
         ProvaiderPolicy::class => Provaider::class,
         SoftwarePolicy::class => Software::class,
-        // Activity::class => ActivityPolicy::class,
+        Activity::class => ActivityPolicy::class
+
     ];
 
     /**

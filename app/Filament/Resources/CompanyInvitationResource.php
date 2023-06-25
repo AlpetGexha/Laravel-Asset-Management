@@ -26,17 +26,17 @@ class CompanyInvitationResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('company.name'),
                 Tables\Columns\TextColumn::make('email'),
                 Tables\Columns\TextColumn::make('role'),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
+                    ->dateTime()
+                    ->sortable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                // Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
@@ -55,7 +55,7 @@ class CompanyInvitationResource extends Resource
         return [
             'index' => Pages\ListCompanyInvitations::route('/'),
             'create' => Pages\CreateCompanyInvitation::route('/create'),
-            'edit' => Pages\EditCompanyInvitation::route('/{record}/edit'),
+            // 'edit' => Pages\EditCompanyInvitation::route('/{record}/edit'),
         ];
     }
 }
