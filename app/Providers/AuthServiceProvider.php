@@ -9,12 +9,14 @@ use App\Models\Hardware;
 use App\Models\Periphel;
 use App\Models\Provaider;
 use App\Models\Software;
+use App\Models\User;
 use App\Policies\ActivityPolicy;
 use App\Policies\CompanyPolicyMain;
 use App\Policies\HardwarePolicy;
 use App\Policies\PeriphelPolicy;
 use App\Policies\ProvaiderPolicy;
 use App\Policies\SoftwarePolicy;
+use App\Policies\UserPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Spatie\Activitylog\Models\Activity;
 
@@ -31,8 +33,8 @@ class AuthServiceProvider extends ServiceProvider
         PeriphelPolicy::class => Periphel::class,
         ProvaiderPolicy::class => Provaider::class,
         SoftwarePolicy::class => Software::class,
-        Activity::class => ActivityPolicy::class
-
+        Activity::class => ActivityPolicy::class,
+        User::class => UserPolicy::class,
     ];
 
     /**
