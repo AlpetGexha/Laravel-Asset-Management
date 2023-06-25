@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e30f5541d0a76159e8d0830e9e9bdb16",
+    "content-hash": "68f7950a41b1f99a5a663497cdad179b",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -3133,6 +3133,84 @@
                 }
             ],
             "time": "2023-06-05T05:18:20+00:00"
+        },
+        {
+            "name": "marjose123/filament-no-connection",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MarJose123/filament-no-connection.git",
+                "reference": "bafaa651bc708b9c767a3d71214e91c6aea6c9e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MarJose123/filament-no-connection/zipball/bafaa651bc708b9c767a3d71214e91c6aea6c9e1",
+                "reference": "bafaa651bc708b9c767a3d71214e91c6aea6c9e1",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^2.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.13.5"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^6.0",
+                "orchestra/testbench": "^7.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "pestphp/pest-plugin-livewire": "^1.0",
+                "pestphp/pest-plugin-parallel": "^0.3",
+                "phpunit/phpunit": "^9.5",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MarJose123\\FilamentNoConnection\\FilamentNoConnectionServiceProvider"
+                    ],
+                    "aliases": {
+                        "FilamentNoConnection": "MarJose123\\FilamentNoConnection\\Facades\\FilamentNoConnection"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MarJose123\\FilamentNoConnection\\": "src",
+                    "MarJose123\\FilamentNoConnection\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marjose",
+                    "email": "hypernate1@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Show an alert to the user if there is no connection from your server",
+            "homepage": "https://github.com/marjose123/filament-no-connection",
+            "keywords": [
+                "MarJose123",
+                "filament",
+                "filament-no-connection",
+                "filamentphp",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/MarJose123/filament-no-connection/issues",
+                "source": "https://github.com/MarJose123/filament-no-connection/tree/1.0.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/MarJose123",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-01-30T22:11:48+00:00"
         },
         {
             "name": "masterminds/html5",
