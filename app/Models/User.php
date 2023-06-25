@@ -90,4 +90,9 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     {
         return $this->current_company_id === $model->company_id;
     }
+
+    public function isSuperAdmin(): bool
+    {
+        return $this->hasRole('super_admin');
+    }
 }
