@@ -15,7 +15,7 @@ trait HasComapanyId
             }
         });
 
-        if (auth()->check()) {
+        if (! auth()->user()->isSuperAdmin()) {
             static::addGlobalScope(new CompanyScope);
         }
     }
