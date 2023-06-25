@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd862cc96fa424ffaf0f30f2fd743801",
+    "content-hash": "c92233f7694d50720b33a4f829aa2f51",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -491,6 +491,82 @@
                 }
             ],
             "time": "2023-01-15T23:15:59+00:00"
+        },
+        {
+            "name": "cms-multi/filament-clear-cache",
+            "version": "1.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cms-multi/filament-clear-cache.git",
+                "reference": "11e0563c41c4c3a21a1bb031b04681e8693160ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cms-multi/filament-clear-cache/zipball/11e0563c41c4c3a21a1bb031b04681e8693160ca",
+                "reference": "11e0563c41c4c3a21a1bb031b04681e8693160ca",
+                "shasum": ""
+            },
+            "require": {
+                "blade-ui-kit/blade-heroicons": "^1.2",
+                "filament/filament": "^2.0",
+                "filament/notifications": "^2.0",
+                "livewire/livewire": "^2.10.7",
+                "php": "^8.0|^8.1",
+                "spatie/laravel-package-tools": "^1.13.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^6.0",
+                "nunomaduro/larastan": "^2.0",
+                "orchestra/testbench": "^7.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "pestphp/pest-plugin-livewire": "^1.1",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "CmsMulti\\FilamentClearCache\\FilamentClearCacheServiceProvider"
+                    ],
+                    "aliases": {
+                        "FilamentClearCache": "CmsMulti\\FilamentClearCache\\Facades\\FilamentClearCache"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "CmsMulti\\FilamentClearCache\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "howdu",
+                    "email": "cms.multi2@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Clear your cache easily from within filament",
+            "homepage": "https://github.com/cms-multi/filament-clear-cache",
+            "keywords": [
+                "filament",
+                "filament-clear-cache",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/cms-multi/filament-clear-cache/issues",
+                "source": "https://github.com/cms-multi/filament-clear-cache/tree/1.0.9"
+            },
+            "time": "2023-06-10T09:51:17+00:00"
         },
         {
             "name": "danharrin/date-format-converter",
