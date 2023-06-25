@@ -18,7 +18,7 @@ class SoftwareResource extends Resource
 
     protected static ?string $navigationGroup = 'bookmark';
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-desktop-computer';
 
     public static function form(Form $form): Form
     {

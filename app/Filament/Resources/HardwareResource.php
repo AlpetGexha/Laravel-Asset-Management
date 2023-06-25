@@ -22,7 +22,7 @@ class HardwareResource extends Resource
 
     protected static ?string $navigationGroup = 'bookmark';
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-chip';
 
     public static function form(Form $form): Form
     {

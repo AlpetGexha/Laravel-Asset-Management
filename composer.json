@@ -9,6 +9,7 @@
         "andrewdwallo/filament-companies": "^2.0",
         "bezhansalleh/filament-shield": "^2.4",
         "filament/filament": "^2.17",
+        "flowframe/laravel-trend": "^0.1.5",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",

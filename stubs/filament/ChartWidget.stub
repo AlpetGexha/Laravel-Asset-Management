@@ -1,0 +1,45 @@
+<?php
+
+namespace {{ namespace }};
+
+use Filament\Widgets\{{ chart }}Widget;
+
+class {{ class }} extends {{ chart }}Widget
+{
+    protected static ?string $heading = 'Chart';
+
+    public bool $readyToLoad = false;
+
+    public function loadData(): void
+    {
+        $this->readyToLoad = true;
+    }
+
+    protected function getData(): array
+    {
+        if (! $this->readyToLoad) {
+            $this->getSkeletonLoad();
+        }
+
+        return [
+            //
+        ];
+    }
+
+
+    private function getSkeletonLoad(): ?array
+    {
+        return [
+            'datasets' => [
+                [
+                    'label' => 'Loading data',
+                    'data' => [],
+                    'backgroundColor' => 'rgba(255, 205, 86, 0.2)',
+                    'borderColor' => 'rgb(255, 205, 86)',
+                    'borderWidth' => 1,
+                ],
+            ],
+            'labels' => [],
+        ];
+    }
+}
