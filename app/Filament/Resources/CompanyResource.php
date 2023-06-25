@@ -9,6 +9,8 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Illuminate\Contracts\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 
 class CompanyResource extends Resource
 {
@@ -79,5 +81,12 @@ class CompanyResource extends Resource
             'index' => Pages\ListCompanies::route('/'),
             // 'edit' => Pages\EditCompany::route('/{record}/edit'),
         ];
+    }
+    public static function getEloquentQuery(): EloquentBuilder
+    {
+        if (!auth()->user()->isSuperAdmin())
+            return parent::getEloquentQuery()->where('id', auth()->user()->current_company_id);
+
+        return parent::getEloquentQuery();
     }
 }
