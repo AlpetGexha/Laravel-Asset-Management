@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class CompanyInvitationResource extends Resource
 {
     protected static ?string $model = CompanyInvitation::class;
-
+    protected static ?int $navigationSort = 1;
 
     protected static ?string $navigationIcon = 'heroicon-o-mail-open';
 
