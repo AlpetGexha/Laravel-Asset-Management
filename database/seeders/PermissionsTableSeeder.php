@@ -796,5 +796,30 @@ class PermissionsTableSeeder extends Seeder
             ],
         ]);
 
+        $premission =  [
+            'view_user',
+            'view_any_user',
+            'create_user',
+            'update_user',
+            'restore_user',
+            'restore_any_user',
+            'replicate_user',
+            'reorder_user',
+            'restore_user',
+            'delete_user',
+            'delete_any_user',
+            'force_delete_user',
+            'force_delete_any_user',
+        ];
+
+        foreach ($premission as $key => $value) {
+            \DB::table('permissions')->insert([
+                'id' => $key + 112,
+                'name' => $value,
+                'guard_name' => 'web',
+                'created_at' => '2023-06-25 18:53:30',
+                'updated_at' => '2023-06-25 18:53:30',
+            ]);
+        }
     }
 }
