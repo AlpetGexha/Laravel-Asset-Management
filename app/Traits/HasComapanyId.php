@@ -11,11 +11,12 @@ trait HasComapanyId
     {
         static::creating(function (Model $model) {
             if (auth()->check()) {
-                $model->company_id = auth()->user()->currentCompany->id;
+                $model->company_id = auth()->user()->current_company_id;
             }
         });
 
-        if (auth()->check())
+        if (auth()->check()) {
             static::addGlobalScope(new CompanyScope);
+        }
     }
 }
