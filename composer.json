@@ -17,7 +17,9 @@
         "laravel/tinker": "^2.8",
         "marjose123/filament-lockscreen": "^1.2",
         "marjose123/filament-no-connection": "^1.0",
+        "orangehill/iseed": "^3.0",
         "pxlrbt/filament-activity-log": "^0.1.1",
+        "pxlrbt/filament-environment-indicator": "^1.0",
         "z3d0x/filament-logger": "^0.5.4"
     },
     "require-dev": {

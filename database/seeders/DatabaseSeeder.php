@@ -13,7 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \Spatie\Permission\Models\Role::create(['name' => 'super_admin']);
+        $this->call(PermissionsTableSeeder::class);
+        $this->call(RolesTableSeeder::class);
+        // \Spatie\Permission\Models\Role::create(['name' => 'super_admin']);
         \App\Models\User::factory()->create([
             'name' => 'admin',
             'email' => 'admin@admin.com',
@@ -30,5 +32,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
     }
+    //php artisan iseed permissions,roles
 }

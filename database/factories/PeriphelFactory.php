@@ -29,6 +29,7 @@ class PeriphelFactory extends Factory
             'company_id' => Company::factory(),
             'provaider_id' => Provaider::factory(),
             'purchased_at' => $this->faker->dateTimeBetween('-5 years', 'now'),
+            'created_at' => $this->faker->dateTimeBetween('-2 years', 'now'),
         ];
     }
 }
