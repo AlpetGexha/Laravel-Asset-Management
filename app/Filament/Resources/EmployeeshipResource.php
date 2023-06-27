@@ -18,12 +18,29 @@ class EmployeeshipResource extends Resource
 
     protected static ?string $navigationGroup = 'company';
 
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                Forms\Components\Select::make('user_id')
+                    ->relationship('user', 'name')
+                    ->required(),
+                Forms\Components\Select::make('role')
+                    ->options([
+                        'admin' => 'Admin',
+                        'editor' => 'Editor',
+                        'viewer' => 'Viewer',
+                    ])
+                    ->required(),
+            ]);
+    }
+
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('company_id'),
-                Tables\Columns\TextColumn::make('user_id'),
+                Tables\Columns\TextColumn::make('company.name')->visible(auth()->user()->isSuperAdmin()),
+                Tables\Columns\TextColumn::make('user.name'),
                 Tables\Columns\TextColumn::make('role'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),

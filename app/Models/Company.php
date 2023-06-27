@@ -72,4 +72,9 @@ class Company extends FilamentCompaniesCompany
     {
         return $this->hasMany(Provaider::class);
     }
+
+    public function employeeships(): HasMany
+    {
+        return $this->hasMany(Employeeship::class);
+    }
 }
