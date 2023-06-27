@@ -818,6 +818,7 @@ class PermissionsTableSeeder extends Seeder
             'restore_any_schedule',
             'replicate_schedule',
             'reorder_schedule',
+            'page_Artisan',
         ];
 
         foreach ($premission as $key => $value) {

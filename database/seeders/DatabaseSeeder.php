@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PermissionsTableSeeder::class,
             RolesTableSeeder::class,
+            RoleHasPermissionsTableSeeder::class,
             UserSeeder::class,
         ]);
 
@@ -33,7 +34,6 @@ class DatabaseSeeder extends Seeder
 
         $this->command->info('Running Hardware factory...');
         \App\Models\Hardware::factory(400)->create();
-
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
