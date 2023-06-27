@@ -65,6 +65,7 @@ class CompanyResource extends Resource
             ])
             ->bulkActions([
                 // Tables\Actions\DeleteBulkAction::make(),
+                \pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction::make(),
             ]);
     }
 

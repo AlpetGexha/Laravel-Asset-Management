@@ -72,6 +72,7 @@ class PeriphelResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
                 Tables\Actions\ForceDeleteBulkAction::make(),
                 Tables\Actions\RestoreBulkAction::make(),
+                \pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction::make(),
             ]);
     }
 
