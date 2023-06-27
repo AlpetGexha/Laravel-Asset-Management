@@ -20,7 +20,7 @@ class ProvaiderFactory extends Factory
         return [
             'name' => $this->faker->name,
             'company_id' => Company::factory(),
-            'created_at' => $this->faker->dateTimeBetween('-2 years', 'now'),
+            'created_at' => $this->faker->dateTimeBetween('-2 years', 'now')->format('Y-m-d H:i:s'),
         ];
     }
 }

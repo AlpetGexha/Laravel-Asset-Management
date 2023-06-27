@@ -26,7 +26,6 @@ class CompanyFactory extends Factory
             'name' => $this->faker->unique()->company(),
             'user_id' => User::factory(),
             'personal_company' => true,
-            'created_at' => $this->faker->dateTimeBetween('-2 years', 'now'),
         ];
     }
 }

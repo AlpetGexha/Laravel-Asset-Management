@@ -62,7 +62,7 @@ class HardwareFactory extends Factory
             'user_id' => User::factory(),
             'company_id' => Company::factory(),
             'provaider_id' => Provaider::factory(),
-            'created_at' => $this->faker->dateTimeBetween('-2 years', 'now'),
+            'created_at' => $this->faker->dateTimeBetween('-2 years', 'now')->format('Y-m-d H:i:s'),
         ];
     }
 }

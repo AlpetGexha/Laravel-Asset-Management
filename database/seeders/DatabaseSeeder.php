@@ -19,16 +19,21 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
         ]);
 
-        try {
-            \App\Models\User::factory(10)->create();
-            \App\Models\Provaider::factory(20)->create();
-            \App\Models\Periphel::factory(200)->create();
-            \App\Models\Software::factory(200)->create();
-            \App\Models\Hardware::factory(400)->create();
-        } catch (\Exception $e) {
-            // skip that error and continiue
+        $this->command->info('Running User factory...');
+        \App\Models\User::factory(10)->create();
 
-        }
+        $this->command->info('Running Provaider factory...');
+        \App\Models\Provaider::factory(20)->create();
+
+        $this->command->info('Running Periphel factory...');
+        \App\Models\Periphel::factory(200)->create();
+
+        $this->command->info('Running Software factory...');
+        \App\Models\Software::factory(200)->create();
+
+        $this->command->info('Running Hardware factory...');
+        \App\Models\Hardware::factory(400)->create();
+
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

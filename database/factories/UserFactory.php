@@ -35,7 +35,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'profile_photo_path' => null,
             'current_company_id' => null,
-            'created_at' => $this->faker->dateTimeBetween('-2 years', 'now'),
+            'created_at' => $this->faker->dateTimeBetween('-2 years', 'now')->format('Y-m-d H:i:s'),
         ];
     }
 
