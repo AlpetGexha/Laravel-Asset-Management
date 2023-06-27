@@ -24,6 +24,10 @@ Route::middleware([
 ])->group(function () {
 });
 
-// Route::get('admin/i/m/super/admin', function () {
-//     auth()->user()->assignRole('super_admin');
-// });
+
+if (!app()->environment('production') || !app()->runningUnitTests()) {
+    Route::get('superadmin', function () {
+        auth()->user()->assignRole('super_admin');
+        return redirect()->back();
+    });
+}
