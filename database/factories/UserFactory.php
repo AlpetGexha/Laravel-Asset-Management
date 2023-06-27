@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Company;
+use App\Models\Employeeship;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -62,9 +63,32 @@ class UserFactory extends Factory
         return $this->has(
             Company::factory()
                 ->state(function (array $attributes, User $user) {
-                    return ['name' => $user->name.'\'s Company', 'user_id' => $user->id, 'personal_company' => true];
+                    return [
+                        'name' => $user->name.'\'s Company',
+                        'user_id' => $user->id,
+                        'personal_company' => true,
+                    ];
                 }),
             'ownedCompanies'
         );
+    }
+
+    public function withSuperAdminRole(): static
+    {
+        return $this->afterCreating(function (User $user) {
+            $user->assignRole('super_admin');
+        });
+    }
+
+    public function withEmployee(?int $number = 10): static
+    {
+        // after creating the user make some emplyoe for this personal comapnany
+        return $this->afterCreating(function (User $user) use ($number) {
+
+            Employeeship::factory([
+                'user_id' => User::factory(),
+                'company_id' => $user->ownedCompanies()->first()->id,
+            ])->count($number)->create();
+        });
     }
 }

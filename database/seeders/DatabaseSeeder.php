@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,19 +12,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(PermissionsTableSeeder::class);
-        $this->call(RolesTableSeeder::class);
-        // \Spatie\Permission\Models\Role::create(['name' => 'super_admin']);
-        \App\Models\User::factory()->create([
-            'name' => 'admin',
-            'email' => 'admin@admin.com',
-            'password' => Hash::make('admin'),
-        ])->assignRole('super_admin');
+
+        $this->call([
+            PermissionsTableSeeder::class,
+            RolesTableSeeder::class,
+            UserSeeder::class,
+        ]);
 
         try {
             \App\Models\User::factory(10)->create();
             \App\Models\Provaider::factory(20)->create();
-            \App\Models\Periphel::factory(30)->create();
+            \App\Models\Periphel::factory(200)->create();
             \App\Models\Software::factory(200)->create();
             \App\Models\Hardware::factory(400)->create();
         } catch (\Exception $e) {
