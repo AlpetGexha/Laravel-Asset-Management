@@ -5,12 +5,11 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\Widgets\UserOverview;
 use App\Models\User;
-use Filament\Forms;
-use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\Column;
+use STS\FilamentImpersonate\Tables\Actions\Impersonate;
 
 class UserResource extends Resource
 {
@@ -19,7 +18,6 @@ class UserResource extends Resource
     protected static ?string $navigationGroup = 'users';
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
-
 
     public static function table(Table $table): Table
     {
@@ -49,6 +47,7 @@ class UserResource extends Resource
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\DeleteAction::make(),
+                Impersonate::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

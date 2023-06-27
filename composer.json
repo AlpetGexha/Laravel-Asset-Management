@@ -22,6 +22,7 @@
         "orangehill/iseed": "^3.0",
         "pxlrbt/filament-activity-log": "^0.1.1",
         "pxlrbt/filament-environment-indicator": "^1.0",
+        "stechstudio/filament-impersonate": "^2.18",
         "z3d0x/filament-logger": "^0.5.4"
     },
     "require-dev": {

@@ -79,6 +79,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         return $this->hasMany(Hardware::class);
     }
 
+    
+
     public function hasSelectCompanyPermission(string $permission)
     {
         $company = $this->currentCompany();
@@ -94,5 +96,15 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     public function isSuperAdmin(): bool
     {
         return $this->hasRole('super_admin');
+    }
+
+    public function canImpersonate(): bool
+    {
+        return $this->isSuperAdmin();
+    }
+
+    public function canBeImpersonated(): bool
+    {
+        return ! $this->isSuperAdmin();
     }
 }
