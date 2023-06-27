@@ -809,6 +809,15 @@ class PermissionsTableSeeder extends Seeder
             'delete_any_user',
             'force_delete_user',
             'force_delete_any_user',
+            'view_any_schedule',
+            'view_schedule',
+            'delete_schedule',
+            'force_delete_schedule',
+            'force_delete_any_schedule',
+            'restore_schedule',
+            'restore_any_schedule',
+            'replicate_schedule',
+            'reorder_schedule',
         ];
 
         foreach ($premission as $key => $value) {

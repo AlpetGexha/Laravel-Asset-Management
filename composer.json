@@ -14,6 +14,7 @@
         "filament/filament": "^2.17",
         "flowframe/laravel-trend": "^0.1.5",
         "guzzlehttp/guzzle": "^7.2",
+        "husam-tariq/filament-database-schedule": "^1.0",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
