@@ -796,7 +796,7 @@ class PermissionsTableSeeder extends Seeder
             ],
         ]);
 
-        $premission =  [
+        $premission = [
             'view_user',
             'view_any_user',
             'create_user',
@@ -805,7 +805,6 @@ class PermissionsTableSeeder extends Seeder
             'restore_any_user',
             'replicate_user',
             'reorder_user',
-            'restore_user',
             'delete_user',
             'delete_any_user',
             'force_delete_user',

@@ -22,11 +22,16 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin'),
         ])->assignRole('super_admin');
 
-        \App\Models\User::factory(10)->create();
-        \App\Models\Provaider::factory(20)->create();
-        \App\Models\Periphel::factory(30)->create();
-        \App\Models\Software::factory(200)->create();
-        \App\Models\Hardware::factory(400)->create();
+        try {
+            \App\Models\User::factory(10)->create();
+            \App\Models\Provaider::factory(20)->create();
+            \App\Models\Periphel::factory(30)->create();
+            \App\Models\Software::factory(200)->create();
+            \App\Models\Hardware::factory(400)->create();
+        } catch (\Exception $e) {
+            // skip that error and continiue
+
+        }
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

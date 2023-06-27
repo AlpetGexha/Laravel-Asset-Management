@@ -3,7 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
+use App\Filament\Resources\UserResource\Widgets\UserOverview;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -11,9 +11,6 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\Column;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use STS\FilamentImpersonate\Tables\Actions\Impersonate;
 
 class UserResource extends Resource
 {
@@ -23,23 +20,6 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('email')
-                    ->email()
-                    ->required()
-                    ->unique()
-                    ->maxLength(255),
-                Forms\Components\Select::make('current_company_id')
-                    ->relationship('currentCompany', 'name'),
-                Forms\Components\TextInput::make('current_connected_account_id'),
-            ]);
-    }
 
     public static function table(Table $table): Table
     {
@@ -57,8 +37,8 @@ class UserResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email_verified_at')
                     ->dateTime(),
-                Tables\Columns\TextColumn::make('currentCompany.name'),
-                Tables\Columns\TextColumn::make('current_connected_account_id'),
+                // Tables\Columns\TextColumn::make('currentCompany.name'),
+                // Tables\Columns\TextColumn::make('current_connected_account_id'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
             ])
@@ -88,6 +68,13 @@ class UserResource extends Resource
             'index' => Pages\ListUsers::route('/'),
             // 'create' => Pages\CreateUser::route('/create'),
             'edit' => Pages\EditUser::route('/{record}/edit'),
+        ];
+    }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            UserOverview::class,
         ];
     }
 }

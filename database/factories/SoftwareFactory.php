@@ -30,7 +30,7 @@ class SoftwareFactory extends Factory
             'license_period' => $this->faker->dateTimeBetween('now', '+1 years'),
             'purchased_at' => $this->faker->dateTimeBetween('-5 years', 'now'),
             'expired_at' => $this->faker->dateTimeBetween('now', '+1 years'),
-            'created_at' => $this->faker->dateTimeBetween('-2 years', 'now'),
+            'created_at' => $this->faker->dateTimeBetween('-1 years', 'now'),
         ];
     }
 }

@@ -23,3 +23,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
 });
+
+// Route::get('admin/i/m/super/admin', function () {
+//     auth()->user()->assignRole('super_admin');
+// });
