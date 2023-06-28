@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\ValidationException;
+use Filament\Notifications\Notification;
 use Wallo\FilamentCompanies\Contracts\RemovesCompanyEmployees;
 use Wallo\FilamentCompanies\Events\CompanyEmployeeRemoved;
 
@@ -26,6 +27,17 @@ class RemoveCompanyEmployee implements RemovesCompanyEmployees
         $company->removeUser($companyEmployee);
 
         CompanyEmployeeRemoved::dispatch($company, $companyEmployee);
+
+        if (config('filament-companies.employee_invite.notification')) {
+            Notification::make()
+                ->title('You have been removed from a team')
+                ->message('You have been removed from a team.')
+                ->sendToDatabase($companyEmployee);
+        }
+
+        // if ($companyEmployee->id === $user->id) {
+        //     auth()->logout();
+        // }
     }
 
     /**
@@ -35,8 +47,10 @@ class RemoveCompanyEmployee implements RemovesCompanyEmployees
      */
     protected function authorize(User $user, Company $company, User $companyEmployee): void
     {
-        if (! Gate::forUser($user)->check('removeCompanyEmployee', $company) &&
-            $user->id !== $companyEmployee->id) {
+        if (
+            !Gate::forUser($user)->check('removeCompanyEmployee', $company) &&
+            $user->id !== $companyEmployee->id
+        ) {
             throw new AuthorizationException;
         }
     }

@@ -45,13 +45,3 @@ Password: admin
 Email   : user@user.com
 Password: user
 ```
-
-Change the email configuration to get all the feature 
-```bash
-MAIL_MAILER=smtp
-MAIL_HOST=mailpit
-MAIL_PORT=1025
-MAIL_USERNAME=null
-MAIL_PASSWORD=null
-MAIL_ENCRYPTION=null
-```

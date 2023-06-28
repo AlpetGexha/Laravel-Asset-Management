@@ -16,6 +16,10 @@ use Wallo\FilamentCompanies\Events\InvitingCompanyEmployee;
 use Wallo\FilamentCompanies\FilamentCompanies;
 use Wallo\FilamentCompanies\Mail\CompanyInvitation;
 use Wallo\FilamentCompanies\Rules\Role;
+use Filament\Notifications\Notification;
+use Filament\Notifications\Actions\Action;
+use Illuminate\Support\Facades\URL;
+
 
 class InviteCompanyEmployee implements InvitesCompanyEmployees
 {
@@ -37,7 +41,25 @@ class InviteCompanyEmployee implements InvitesCompanyEmployees
             'role' => $role,
         ]);
 
-        Mail::to($email)->send(new CompanyInvitation($invitation));
+        if (config('filament-companies.employee_invite.email'))
+            Mail::to($email)->send(new CompanyInvitation($invitation));
+
+        if (config('filament-companies.employee_invite.notification')) {
+            Notification::make()
+                ->title('Join Our Team')
+                ->body('You have been invited to join our company: ' . $invitation->company->name)
+                ->icon('heroicon-o-user-add')
+                ->actions(
+                    [
+                        Action::make('JOIN!')
+                            // url with signedRoute
+                            ->url(URL::signedRoute('company-invitations.accept', [
+                                'invitation' => $invitation,
+                            ])),
+                    ]
+                )
+                ->sendToDatabase(User::where('email', $email)->first());
+        }
     }
 
     /**
@@ -70,8 +92,8 @@ class InviteCompanyEmployee implements InvitesCompanyEmployees
                 }),
             ],
             'role' => FilamentCompanies::hasRoles()
-                            ? ['required', 'string', new Role]
-                            : null,
+                ? ['required', 'string', new Role]
+                : null,
         ]);
     }
 

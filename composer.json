@@ -12,6 +12,7 @@
         "bezhansalleh/filament-shield": "^2.4",
         "cms-multi/filament-clear-cache": "^1.0",
         "filament/filament": "^2.17",
+        "filament/notifications": "^2.17",
         "flowframe/laravel-trend": "^0.1.5",
         "guzzlehttp/guzzle": "^7.2",
         "husam-tariq/filament-database-schedule": "^1.0",
